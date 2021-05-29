@@ -1,9 +1,9 @@
-// Copyright (c) 2021 The Bitcoin Core developers
+// Copyright (c) 2021 The Garliccoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_POLICY_PACKAGES_H
-#define BITCOIN_POLICY_PACKAGES_H
+#ifndef GARLICCOIN_POLICY_PACKAGES_H
+#define GARLICCOIN_POLICY_PACKAGES_H
 
 #include <consensus/validation.h>
 #include <primitives/transaction.h>
@@ -31,4 +31,4 @@ using Package = std::vector<CTransactionRef>;
 
 class PackageValidationState : public ValidationState<PackageValidationResult> {};
 
-#endif // BITCOIN_POLICY_PACKAGES_H
+#endif // GARLICCOIN_POLICY_PACKAGES_H

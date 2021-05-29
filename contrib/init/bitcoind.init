@@ -1,36 +1,36 @@
 #!/usr/bin/env bash
 #
-#  bitcoind The bitcoin core server.
+#  garliccoind The garliccoin core server.
 #
 #
 # chkconfig: 345 80 20
-# description: bitcoind
-# processname: bitcoind
+# description: garliccoind
+# processname: garliccoind
 #
 
 # Source function library.
 . /etc/init.d/functions
 
-# you can override defaults in /etc/sysconfig/bitcoind, see below
-if [ -f /etc/sysconfig/bitcoind ]; then
-        . /etc/sysconfig/bitcoind
+# you can override defaults in /etc/sysconfig/garliccoind, see below
+if [ -f /etc/sysconfig/garliccoind ]; then
+        . /etc/sysconfig/garliccoind
 fi
 
 RETVAL=0
 
-prog=bitcoind
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/bitcoind
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/bitcoind}
+prog=garliccoind
+# you can override the lockfile via GARLICCOIND_LOCKFILE in /etc/sysconfig/garliccoind
+lockfile=${GARLICCOIND_LOCKFILE-/var/lock/subsys/garliccoind}
 
-# bitcoind defaults to /usr/bin/bitcoind, override with BITCOIND_BIN
-bitcoind=${BITCOIND_BIN-/usr/bin/bitcoind}
+# garliccoind defaults to /usr/bin/garliccoind, override with GARLICCOIND_BIN
+garliccoind=${GARLICCOIND_BIN-/usr/bin/garliccoind}
 
-# bitcoind opts default to -disablewallet, override with BITCOIND_OPTS
-bitcoind_opts=${BITCOIND_OPTS--disablewallet}
+# garliccoind opts default to -disablewallet, override with GARLICCOIND_OPTS
+garliccoind_opts=${GARLICCOIND_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "
-    daemon $DAEMONOPTS $bitcoind $bitcoind_opts
+    daemon $DAEMONOPTS $garliccoind $garliccoind_opts
     RETVAL=$?
     echo
     [ $RETVAL -eq 0 ] && touch $lockfile

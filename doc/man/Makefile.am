@@ -1,27 +1,27 @@
 dist_man1_MANS=
 
-if BUILD_BITCOIND
-  dist_man1_MANS+=bitcoind.1
+if BUILD_GARLICCOIND
+  dist_man1_MANS+=garliccoind.1
 endif
 
 if ENABLE_QT
-  dist_man1_MANS+=bitcoin-qt.1
+  dist_man1_MANS+=garliccoin-qt.1
 endif
 
-if BUILD_BITCOIN_CLI
-  dist_man1_MANS+=bitcoin-cli.1
+if BUILD_GARLICCOIN_CLI
+  dist_man1_MANS+=garliccoin-cli.1
 endif
 
-if BUILD_BITCOIN_TX
-  dist_man1_MANS+=bitcoin-tx.1
+if BUILD_GARLICCOIN_TX
+  dist_man1_MANS+=garliccoin-tx.1
 endif
 
-if BUILD_BITCOIN_UTIL
-  dist_man1_MANS+=bitcoin-util.1
+if BUILD_GARLICCOIN_UTIL
+  dist_man1_MANS+=garliccoin-util.1
 endif
 
 if ENABLE_WALLET
-if BUILD_BITCOIN_WALLET
-  dist_man1_MANS+=bitcoin-wallet.1
+if BUILD_GARLICCOIN_WALLET
+  dist_man1_MANS+=garliccoin-wallet.1
 endif
 endif

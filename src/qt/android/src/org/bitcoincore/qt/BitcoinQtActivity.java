@@ -1,4 +1,4 @@
-package org.bitcoincore.qt;
+package org.garliccoincore.qt;
 
 import android.os.Bundle;
 import android.system.ErrnoException;
@@ -8,14 +8,14 @@ import org.qtproject.qt5.android.bindings.QtActivity;
 
 import java.io.File;
 
-public class BitcoinQtActivity extends QtActivity
+public class GarliccoinQtActivity extends QtActivity
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-        final File bitcoinDir = new File(getFilesDir().getAbsolutePath() + "/.bitcoin");
-        if (!bitcoinDir.exists()) {
-            bitcoinDir.mkdir();
+        final File garliccoinDir = new File(getFilesDir().getAbsolutePath() + "/.garliccoin");
+        if (!garliccoinDir.exists()) {
+            garliccoinDir.mkdir();
         }
 
         try {

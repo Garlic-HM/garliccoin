@@ -1,12 +1,12 @@
-// Copyright (c) 2011-2020 The Bitcoin Core developers
+// Copyright (c) 2011-2020 The Garliccoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_BITCOIN_H
-#define BITCOIN_QT_BITCOIN_H
+#ifndef GARLICCOIN_QT_GARLICCOIN_H
+#define GARLICCOIN_QT_GARLICCOIN_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/garliccoin-config.h>
 #endif
 
 #include <QApplication>
@@ -15,7 +15,7 @@
 
 #include <interfaces/node.h>
 
-class BitcoinGUI;
+class GarliccoinGUI;
 class ClientModel;
 class NetworkStyle;
 class OptionsModel;
@@ -26,14 +26,14 @@ class WalletController;
 class WalletModel;
 
 
-/** Class encapsulating Bitcoin Core startup and shutdown.
+/** Class encapsulating Garliccoin Core startup and shutdown.
  * Allows running startup and shutdown in a different thread from the UI thread.
  */
-class BitcoinCore: public QObject
+class GarliccoinCore: public QObject
 {
     Q_OBJECT
 public:
-    explicit BitcoinCore(interfaces::Node& node);
+    explicit GarliccoinCore(interfaces::Node& node);
 
 public Q_SLOTS:
     void initialize();
@@ -51,13 +51,13 @@ private:
     interfaces::Node& m_node;
 };
 
-/** Main Bitcoin application object */
-class BitcoinApplication: public QApplication
+/** Main Garliccoin application object */
+class GarliccoinApplication: public QApplication
 {
     Q_OBJECT
 public:
-    explicit BitcoinApplication();
-    ~BitcoinApplication();
+    explicit GarliccoinApplication();
+    ~GarliccoinApplication();
 
 #ifdef ENABLE_WALLET
     /// Create payment server
@@ -84,7 +84,7 @@ public:
     /// Get process return value
     int getReturnValue() const { return returnValue; }
 
-    /// Get window identifier of QMainWindow (BitcoinGUI)
+    /// Get window identifier of QMainWindow (GarliccoinGUI)
     WId getMainWinId() const;
 
     /// Setup platform style
@@ -109,13 +109,13 @@ Q_SIGNALS:
     void requestedInitialize();
     void requestedShutdown();
     void splashFinished();
-    void windowShown(BitcoinGUI* window);
+    void windowShown(GarliccoinGUI* window);
 
 private:
     QThread *coreThread;
     OptionsModel *optionsModel;
     ClientModel *clientModel;
-    BitcoinGUI *window;
+    GarliccoinGUI *window;
     QTimer *pollShutdownTimer;
 #ifdef ENABLE_WALLET
     PaymentServer* paymentServer{nullptr};
@@ -132,4 +132,4 @@ private:
 
 int GuiMain(int argc, char* argv[]);
 
-#endif // BITCOIN_QT_BITCOIN_H
+#endif // GARLICCOIN_QT_GARLICCOIN_H
